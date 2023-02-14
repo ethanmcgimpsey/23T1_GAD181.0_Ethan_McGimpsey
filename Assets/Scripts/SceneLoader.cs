@@ -17,6 +17,7 @@ namespace EthanMcGimpsey.SimpleLevelLoader
                 // Load the specified scene
                 SceneManager.LoadScene(sceneToLoad);
                 Debug.Log("Reloaded the same scene");
+                Cursor.lockState = CursorLockMode.None;
             }
         }
     }
