@@ -19,21 +19,16 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void FixedUpdate()
+    void Update()
     {
+        Camera();
+
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
         moveDirection = new Vector3(horizontal, 0f, vertical);
         moveDirection = transform.TransformDirection(moveDirection);
         moveDirection *= moveSpeed;
-
-        mouseX += Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime;
-        mouseY -= Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime;
-        mouseY = Mathf.Clamp(mouseY, -90f, 90f);
-
-        cam.transform.localRotation = Quaternion.Euler(mouseY, 0f, 0f);
-        transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
 
         if (Input.GetButton("Jump") && Mathf.Abs(rb.velocity.y) < 0.01f)
         {
@@ -43,5 +38,15 @@ public class PlayerController : MonoBehaviour
         moveDirection.y = rb.velocity.y - gravity * Time.deltaTime;
 
         rb.velocity = moveDirection;
+    }
+
+    void Camera()
+    {
+        mouseX += Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime;
+        mouseY -= Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime;
+        mouseY = Mathf.Clamp(mouseY, -90f, 90f);
+
+        cam.transform.localRotation = Quaternion.Euler(mouseY, 0f, 0f);
+        transform.rotation = Quaternion.Euler(0f, mouseX, 0f);
     }
 }
