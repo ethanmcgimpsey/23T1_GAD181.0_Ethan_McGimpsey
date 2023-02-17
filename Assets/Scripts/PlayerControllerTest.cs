@@ -7,8 +7,9 @@ public class PlayerControllerTest : MonoBehaviour
 {
     [Header("Speed Vars")]
     //Value Variables
-    public float moveSpeed;
-    public float maxSpeed, jumpSpeed;
+    public float curSpeed;
+    public float walkSpeed, maxSpeed, jumpSpeed;
+    public float acceleration = 1.0f;
     public float sensitivity = 100f;
     private float _gravity = 20;
     //Struct - Contains Multiple Variables (eg...3 floats)
@@ -18,7 +19,8 @@ public class PlayerControllerTest : MonoBehaviour
     public CharacterController _charController;
     public Transform cam;
 
-    public bool isGrounded;
+    [Header("Check Bools")]
+    public bool isWalking;
 
     private void Start()
     {
@@ -34,10 +36,16 @@ public class PlayerControllerTest : MonoBehaviour
     {
         if (_charController.isGrounded)
         {
-            moveSpeed = maxSpeed;
-            isGrounded = true;
+            if(_charController.transform.position != _moveDir)
+            {
+                curSpeed = maxSpeed;
+            }
+            else
+            {
+                curSpeed = 0;
+            }
             //move this direction based off inputs
-            _moveDir = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * moveSpeed);
+            _moveDir = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical") * curSpeed));
             if (Input.GetButton("Jump"))
             {
                 _moveDir.y = jumpSpeed;
