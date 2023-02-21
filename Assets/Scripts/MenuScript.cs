@@ -22,6 +22,7 @@ public class MenuScript : MonoBehaviour
                 Time.timeScale = 0;
                 AudioListener.pause = false;
                 trigger.SetActive(true);
+                Cursor.lockState = CursorLockMode.None;
             }
             else
             {
@@ -29,6 +30,7 @@ public class MenuScript : MonoBehaviour
                 Time.timeScale = 1;
                 AudioListener.pause = true;
                 trigger.SetActive(false);
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
     }

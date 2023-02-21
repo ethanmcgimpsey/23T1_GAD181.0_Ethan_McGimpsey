@@ -5,6 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1;
+        Cursor.lockState = CursorLockMode.None;
+    }
     public void NextScene()
     {
         Scene activeScene = SceneManager.GetActiveScene();

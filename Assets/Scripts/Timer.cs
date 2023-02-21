@@ -9,7 +9,9 @@ public class Timer : MonoBehaviour
 {
     public string LevelToLoad;
     public float timer = 10f;
+    public float Starttimer = 10f;
     public TMP_Text timerText;
+    public TMP_Text startTimerText;
 
     // Use this for initialization
     void Start()
