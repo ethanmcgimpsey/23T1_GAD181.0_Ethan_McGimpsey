@@ -20,12 +20,14 @@ public class MenuScript : MonoBehaviour
             {
                 //Pauses Time and player movement and sets Paused menu to be active
                 Time.timeScale = 0;
+                AudioListener.pause = false;
                 trigger.SetActive(true);
             }
             else
             {
                 //Unpauses the game by disabling everything else
                 Time.timeScale = 1;
+                AudioListener.pause = true;
                 trigger.SetActive(false);
             }
         }

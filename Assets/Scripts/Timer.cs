@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -23,8 +24,7 @@ public class Timer : MonoBehaviour
         timerText.text = timer.ToString("f2");
         if (timer <= 0)
         {
-            Application.LoadLevel(LevelToLoad);
-            Cursor.lockState = CursorLockMode.Confined;
+            SceneManager.LoadScene(3);
         }
 
     }

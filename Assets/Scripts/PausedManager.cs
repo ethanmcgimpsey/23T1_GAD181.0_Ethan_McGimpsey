@@ -32,4 +32,8 @@ public class PausedManager : MonoBehaviour
     {
         SceneManager.LoadScene(mainMenu);
     }
+    public void ButtonToHowToPlay()
+    {
+        SceneManager.LoadScene(4);
+    }
 }
