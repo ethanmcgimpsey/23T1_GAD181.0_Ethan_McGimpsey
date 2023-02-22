@@ -9,9 +9,11 @@ public class Timer : MonoBehaviour
 {
     public string LevelToLoad;
     public float timer = 10f;
-    public float Starttimer = 10f;
+    public float pauseTimer = 3f;
     public TMP_Text timerText;
-    public TMP_Text startTimerText;
+    public TMP_Text pauseTimerText;
+    
+    public bool pauseStartTimer;
 
     // Use this for initialization
     void Start()
@@ -22,11 +24,26 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        timer -= Time.deltaTime;
         timerText.text = timer.ToString("f2");
-        if (timer <= 0)
+        pauseTimerText.text = pauseTimer.ToString("f0");
+        if(pauseTimer >= 0)
         {
-            SceneManager.LoadScene(3);
+            pauseTimer -= Time.deltaTime;
+            pauseStartTimer = true;
+        }
+        else 
+        {
+            pauseStartTimer = false;
+            pauseTimerText.enabled = false;
+        }
+
+        if(pauseStartTimer == false)
+        {
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                SceneManager.LoadScene(3);
+            }
         }
 
     }
