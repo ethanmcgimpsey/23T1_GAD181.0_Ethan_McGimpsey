@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour
                     curSpeed = maxSpeed;
                 }
                 //move this direction based off inputs
-                _moveDir = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical") * curSpeed));
+                _moveDir = transform.TransformDirection(new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")) * curSpeed);
                 if (Input.GetButton("Jump"))
                 {
                     _moveDir.y = jumpSpeed;

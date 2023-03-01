@@ -455,30 +455,6 @@ PrefabInstance:
       propertyPath: _timer
       value: 
       objectReference: {fileID: 1699546672}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: _gravity
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: maxSpeed
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: minSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: jumpSpeed
-      value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5848698329952123816, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
-      propertyPath: acceleration
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5848698329952123821, guid: 3cccf295cd3236f458279eec60aeee61, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -14109,7 +14085,7 @@ MeshCollider:
   m_GameObject: {fileID: 1593112636}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -14593,7 +14569,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 10
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -14646,7 +14622,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 4
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -15139,7 +15115,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 5
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
