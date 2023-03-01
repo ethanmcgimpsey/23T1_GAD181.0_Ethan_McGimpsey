@@ -6,6 +6,7 @@ using UnityEngine;
 public class SpeedlineActivation : MonoBehaviour
 {
     [SerializeField] public GameObject speedLines;
+    public Timer timer;
     private void Start()
     {
         speedLines.SetActive(false);
@@ -13,15 +14,16 @@ public class SpeedlineActivation : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if(timer.pauseTimer <= 0)
         {
-            speedLines.SetActive(true);
-            Debug.Log("hi");
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                speedLines.SetActive(true);
+            }
+            if (Input.GetKeyUp(KeyCode.W))
+            {
+                speedLines.SetActive(false);
+            }
         }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            speedLines.SetActive(false);
-        }
-
     }
 }
